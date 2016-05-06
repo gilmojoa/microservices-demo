@@ -1,0 +1,9 @@
+---
+applications:
+- name: products-service
+  memory: 400M
+  path: target/products-0.0.1-SNAPSHOT.jar
+  services:
+    eureka-server: 
+  env:
+    spring_profiles_active: dev

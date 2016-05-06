@@ -1,0 +1,46 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+
+<body>
+
+	<h1>Welcome to the <i><b><span th:text="${env}">text</span></b></i> demo of mircoservices in stackato</h1>
+	<h3>Overview</h3>
+	<ul>
+		<li>A simple web-application for accessing accounts and products
+			data.</li>
+		<li>All the account and product information is fetched via a zuul reverse proxy to the 
+			Products and Accounts microservices.</li>
+	</ul>
+
+    <h3>Netflix Libraries in this demo</h3>
+	<ul>
+		<li><b>Spring Cloud Config Server</b> for external configuration</li>
+		<li><b>Spring Cloud Eureka</b> for service registration and discovery</li>
+		<li><b>Spring Cloud Zuul</b> as a reverse proxy for backend microservices</li>
+	</ul>
+	
+	<h3>The Demo</h3>
+
+	<ul class="openlist">
+		<!-- <li>Eureka Dashboard: <a
+			href="http://localhost:8761">http://localhost:8761</a></li>
+		<li>Check applications registered: <a
+			href="http://localhost:8761/eureka/apps/">http://localhost:8761/eureka/apps/</a></li> -->
+		<li>Fetch account #123456714: <a th:href="@{/accounts/123456714}">/accounts/123456714</a></li>
+		
+		<li>Fetch product #11111111: <a th:href="@{/products/11111111}">/products/11111111</a></li>
+
+		<li>Fetch an account by name: <a th:href="@{/accounts/owner/Michael}">/accounts/owner/Michael</a></li>
+		
+		<li>Fetch a product by name: <a th:href="@{/products/productName/Product 1}">/products/productName/Product 1</a></li>
+
+		<li>Account <a th:href="@{/accounts/search}">Search</a></li>
+		
+		<li>Product <a th:href="@{/products/search}">Search</a></li>
+	</ul>
+
+	
+</body>
+</html>

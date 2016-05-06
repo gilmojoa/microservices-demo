@@ -1,0 +1,10 @@
+---
+applications:
+- name: web-service
+  memory: 400M
+  path: target/web-service-0.0.1-SNAPSHOT.jar
+  services:
+    eureka-server: 
+    config-server: 
+  env:
+    spring_profiles_active: dev

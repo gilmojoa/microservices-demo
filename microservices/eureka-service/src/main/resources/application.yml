@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: eureka-service
+
+---
+spring:
+  profiles: default
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:${server.port}/eureka/
+
+server:
+  port: 8761   
+--- 
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+
+---
+spring:
+  profiles: cloud
+eureka:
+  instance:
+    hostname: ${vcap.application.application_uris[0]}
+    nonSecurePort: 80
+---

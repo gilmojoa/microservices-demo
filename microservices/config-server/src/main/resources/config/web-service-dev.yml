@@ -1,0 +1,5 @@
+---
+environment: dev
+account:
+  uri: http://ACCOUNTS-SERVICE
+  numberlength: 9

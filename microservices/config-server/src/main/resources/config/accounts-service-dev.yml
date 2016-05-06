@@ -1,0 +1,6 @@
+---
+db:
+  driver: com.mysql.jdbc.Driver
+  url: jdbc:mysql://16.49.137.23:3306/accounts?autoReconnect=true
+  username: test
+  password: test

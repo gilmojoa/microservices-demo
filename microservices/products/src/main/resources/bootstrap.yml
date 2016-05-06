@@ -1,0 +1,19 @@
+# Spring properties
+spring:
+  application:
+     name: products-service  # Service registers under this name
+  freemarker:
+    enabled: false           # Ignore Eureka dashboard FreeMarker templates
+  thymeleaf:
+    cache: false             # Allow Thymeleaf templates to be reloaded at runtime
+    prefix: classpath:/products-service/templates/    # Trailing / mandatory
+                             # Template location for this application only
+
+cloud:
+  config:
+    uri:
+      #http://sample-config.16.49.138.234.xip.io
+      ${vcap.services.config-server.credentials.uri:${localconfigserver}}
+        
+localconfigserver:
+  http://localhost:8888

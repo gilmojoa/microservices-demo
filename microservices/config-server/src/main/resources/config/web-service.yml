@@ -1,0 +1,6 @@
+---
+deploy:
+  environment: default
+account:
+  uri: http://ACCOUNTS-SERVICE
+  numberlength: 10

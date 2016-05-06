@@ -1,0 +1,36 @@
+# Spring properties
+spring:
+  application:
+    name: web-service  # Identify this application
+  freemarker:
+    enabled: false     # Ignore Eureka dashboard FreeMarker templates
+  thymeleaf:
+    cache: false       # Allow Thymeleaf templates to be reloaded at runtime
+    prefix: classpath:/web-server/templates/    # Trailing / mandatory
+                       # Template location for this application only
+
+  cloud:
+    config:
+      uri:
+        ${vcap.services.config-server.credentials.uri:${localconfigserver}}
+        
+localconfigserver:
+  http://localhost:8080
+          
+localeureka:
+  http://localhost:8761
+  
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.eureka-server.credentials.uri:${localeureka}}/eureka/
+    
+---
+spring:
+  profiles: cloud
+eureka:
+  instance:
+    hostname: ${vcap.application.application_uris[0]}
+    nonSecurePort: 80
+---

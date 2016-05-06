@@ -1,0 +1,27 @@
+                     
+# Map the error path to error template (for Thymeleaf)
+error:
+  path=/error
+
+zuul:
+  routes:
+    accounts:
+      path: /accounts/**
+      serviceId: accounts-service
+      stripPrefix: false
+    products:  
+      path: /products/**
+      serviceId: products-service
+      stripPrefix: false
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 20000
+# HTTP Server
+server:
+  port: 3333   # HTTP (Tomcat) port

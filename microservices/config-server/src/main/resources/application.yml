@@ -1,0 +1,15 @@
+---
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/gilmojoa/msdemo-config
+        native:
+          searchLocations: classpath:/config       
+          #searchLocations: file:///C:/Users/gilmojoa/demo/myconfig
+
+#server:
+#  port: 8888

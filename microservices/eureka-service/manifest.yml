@@ -1,0 +1,7 @@
+---
+applications:
+- name: eureka-service
+  memory: 400M
+  path: target/eureka-service-0.0.1-SNAPSHOT.jar
+  env:
+    spring_profiles_active: dev
